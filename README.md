@@ -30,11 +30,13 @@ The overall architecture is defined by three primary nodes that pass a centraliz
 Role: Data Retrieval and Algorithmic Pruning.
 Tool Use: Calls the Google Maps Places API to search around a landmark or city center.
 Core Logic: Applies the Inverse Filter: Rating >= 4.5 Stars AND Total Review Count < 500. This aggressively discards all high-volume, highly-saturated tourist spots, regardless of their star rating, to focus only on highly-rated local gems.
+
 2. The Vibe Analysis Agent
 
 Role: Qualitative Matching and Feature Extraction.
 Generative AI Task: Uses a Gemini LLM and structured output (Pydantic) to analyze the raw review snippets for the filtered spots.
 Output: Converts unstructured text reviews into structured data (e.g., ["cozy", "minimalist"] adjectives and unique features like ["cash-only," "dog-friendly"]). This structure allows the agent to score and rank spots based on how well they match the user's requested "vibe."
+
 3. The Itinerary Builder & Narrative Agent
 
 Role: Synthesis, Optimization, and Presentation.
